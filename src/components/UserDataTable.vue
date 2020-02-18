@@ -6,7 +6,20 @@
         </div>
         <div v-else>
             <div v-if="this.fetchingError === true">
-                Оишбка сети, попробуйте пожже
+                <el-alert
+                        title="Ошибка подключения. Попробуйте повторить попытку позже"
+                        type="error"
+                        effect="dark"
+                center>
+                <el-alert
+                    :title="fetchingErrorMesage"
+                    type="error"
+                    show-icon
+                    center>
+            </el-alert>
+                </el-alert>
+
+
             </div>
             <div v-else>
 

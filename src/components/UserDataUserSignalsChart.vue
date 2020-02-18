@@ -3,12 +3,15 @@
 </template>
 
 <script>
+    let ru = require("apexcharts/dist/locales/ru.json");
     export default {
         name: "UserDataUserSignalsChart",
         data(){
             return{
                 chartOptions: {
                     chart: {
+                        locales: [ru],
+                        defaultLocale: 'ru',
                         type: 'bar',
                         height: 350
                     },
@@ -54,12 +57,12 @@
                     tooltip: {
                         x:{
                             show:true,
-                            format: 'HH:mm:ss:ff  dd/MM/yyyy'
+                            format: 'HH:mm:ss:ff  dd.MM.yyyy'
 
                         },
                         y: {
                             formatter: function(value) {
-                                return "rssi: " + value +" db"
+                                return value +" db"
                             }
                         }
                     }
@@ -72,7 +75,9 @@
         computed:{
             seriesWrapper(){
                 //apex chart принимает данные в таком формате
-                return [{"data":this.usersignalsdata}]
+                return [{
+                    "name":"RSSI",
+                    "data":this.usersignalsdata}]
             }
         }
     }
