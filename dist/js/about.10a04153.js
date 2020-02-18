@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["about"],{dfc7:function(e,t,a){"use strict";a.r(t);var n=function(){var e=this,t=e.$createElement,a=e._self._c||t;return a("div",[a("user-data-table")],1)},o=[],r=a("73b1"),c={name:"AddedData",components:{UserDataTable:r["a"]},beforeCreate:function(){this.$store.commit("changeDataEndpointUrlToAddedData")}},d=c,s=a("2877"),l=Object(s["a"])(d,n,o,!1,null,null,null);t["default"]=l.exports}}]);
+//# sourceMappingURL=about.10a04153.js.map
