@@ -88,8 +88,9 @@
                 return this.usersData[id].signals.map(item=>item['ts'])
             },
             userSignalsRssi(id){
-                return this.usersData[id].signals.map(item=>Math.abs(item['rssi']))
-            }
+                return this.usersData[id].signals.map(item=>item['rssi'])
+            },
+
         },
         async created(){
             console.log(this.$store.getters.userDataEndpointUrl);

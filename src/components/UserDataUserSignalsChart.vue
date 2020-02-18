@@ -1,5 +1,5 @@
 <template>
-    <apexchart type="bar" height="350" :options="chartOptions" :series="this.series"></apexchart>
+    <apexchart type="bar" height="350" :options="chartOptions" :series="this.seriesWrapper"></apexchart>
 </template>
 
 <script>
@@ -45,6 +45,11 @@
         props: {
             series: Array,
             categories: Array
+        },
+        computed:{
+            seriesWrapper(){
+                return [{"data":this.series}]
+            }
         }
     }
 </script>
