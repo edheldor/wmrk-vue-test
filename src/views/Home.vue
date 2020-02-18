@@ -13,6 +13,9 @@ export default {
   name: 'Home',
   components: {
     UserDataTable
-  }
+  },
+    beforeCreate(){
+        this.$store.commit('changeDataEndpointUrlToOriginalWrapped')
+    }
 }
 </script>

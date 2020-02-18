@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Данные с https://rssi.wmrk.tk/</router-link> |
+      <router-link to="/added-data">Дополненные данные</router-link>
+      <p>Адрес эндпоинта с данными</p>
+      <p>{{this.$store.getters.userDataEndpointUrl}}</p>
+
     </div>
     <router-view/>
   </div>
@@ -27,6 +30,6 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #3245b9;
 }
 </style>
