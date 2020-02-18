@@ -12,7 +12,7 @@
                         effect="dark"
                 center>
                 <el-alert
-                    :title="fetchingErrorMesage"
+                    :title="fetchingErrorMesage.toString()"
                     type="error"
                     show-icon
                     center>
@@ -23,18 +23,20 @@
             </div>
             <div v-else>
 
-                <el-table  lazy
+                <el-table
                            @row-click="rowClicked"
                            ref="tableData"
                            :data="this.userDataAsArray"
                            :default-sort = "{prop: 'last_name', order: 'ascending'}"
                 >
                     <el-table-column type="expand" >
-                        <template slot-scope="props">
 
-                            <user-data-user-signals-chart :usersignalsdata="userSignalsData(props.row.id)" ></user-data-user-signals-chart>
+                        <template  slot-scope="props">
+                              <user-data-user-signals-chart   :usersignalsdata="userSignalsData(props.row.id) " ></user-data-user-signals-chart>
                         </template>
+
                     </el-table-column>
+
                     <el-table-column
                             prop="last_name"
                             label="Фамилия"
@@ -99,13 +101,13 @@
             },
             userSignalsData(id){
                 return this.usersData[id].signals.map(item=>{
-                    return [item['ts'], item['rssi']]
+                    return [item['ts'],  item['rssi']]
                 })
             }
 
         },
-        async created(){
-            console.log(this.$store.getters.userDataEndpointUrl);
+        created(){
+
             this.axios.get(this.$store.getters.userDataEndpointUrl)
                 .then(response=>{
                     this.usersData = response.data;

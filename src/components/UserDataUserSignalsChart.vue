@@ -1,5 +1,5 @@
 <template>
-    <apexchart type="bar" height="350" :options="chartOptions" :series="this.seriesWrapper"></apexchart>
+    <apexchart v-once  height="300" :options="chartOptions" :series="this.seriesWrapper"></apexchart>
 </template>
 
 <script>
@@ -13,7 +13,6 @@
                         locales: [ru],
                         defaultLocale: 'ru',
                         type: 'bar',
-                        height: 350
                     },
                     plotOptions: {
                         bar: {
@@ -40,16 +39,22 @@
                                 day: 'dd MMM',
                                 hour: 'HH:mm',
 
-                            }
+                            },
+
+
                         },
-
-
-
                     },
                     yaxis: {
                         title: {
-                            text: 'dBm'
-                        }
+                            text: ' dBm ',
+
+                        },
+                        max: 0,
+                        min: -120,
+                        tickAmount: 6,
+
+
+
 
 
                     },
