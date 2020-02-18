@@ -28,7 +28,19 @@
                         colors: ['transparent']
                     },
                     xaxis: {
-                        categories: this.categories,
+                        type: 'datetime',
+                        // labels: {
+                        //     format: 'HH:mm:ss  dd/MM/yyyy',
+                        // }
+                        labels: {
+                            datetimeFormatter: {
+                                year: 'yyyy',
+                                month: 'MMM \'yy',
+                                day: 'dd MMM',
+                                hour: 'HH:mm',
+                                minute: 'HH:mm:ss',
+                            }
+                        }
 
                     },
                     yaxis: {
@@ -39,16 +51,28 @@
                     fill: {
                         opacity: 1
                     },
+                    tooltip: {
+                        x:{
+                            show:true,
+                            format: 'HH:mm:ss:ff  dd/MM/yyyy'
+
+                        },
+                        y: {
+                            formatter: function(value) {
+                                return "rssi: " + value +" db"
+                            }
+                        }
+                    }
                 },
             }
         },
         props: {
-            series: Array,
-            categories: Array
+            usersignalsdata: Array,
         },
         computed:{
             seriesWrapper(){
-                return [{"data":this.series}]
+                //apex chart принимает данные в таком формате
+                return [{"data":this.usersignalsdata}]
             }
         }
     }

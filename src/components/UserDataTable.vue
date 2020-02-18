@@ -19,7 +19,7 @@
                     <el-table-column type="expand" >
                         <template slot-scope="props">
                         <p>{{props.row.id}}</p>
-                            <user-data-user-signals-chart :series="userSignalsRssi(props.row.id)" :categories="userSignalsTimestamps(props.row.id)"></user-data-user-signals-chart>
+                            <user-data-user-signals-chart :usersignalsdata="userSignalsData(props.row.id)" ></user-data-user-signals-chart>
                         </template>
                     </el-table-column>
                     <el-table-column
@@ -84,12 +84,11 @@
             rowClicked(row) {
                 this.$refs.tableData.toggleRowExpansion(row);
             },
-            userSignalsTimestamps(id){
-                return this.usersData[id].signals.map(item=>item['ts'])
-            },
-            userSignalsRssi(id){
-                return this.usersData[id].signals.map(item=>item['rssi'])
-            },
+            userSignalsData(id){
+                return this.usersData[id].signals.map(item=>{
+                    return [item['ts'], item['rssi']]
+                })
+            }
 
         },
         async created(){
