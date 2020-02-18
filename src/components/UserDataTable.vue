@@ -31,7 +31,7 @@
                 >
                     <el-table-column type="expand" >
                         <template slot-scope="props">
-                        <p>{{props.row.id}}</p>
+
                             <user-data-user-signals-chart :usersignalsdata="userSignalsData(props.row.id)" ></user-data-user-signals-chart>
                         </template>
                     </el-table-column>
@@ -52,7 +52,7 @@
                     </el-table-column>
                     <el-table-column
                             prop="phone"
-                            label="phone"
+                            label="Телефон"
                             sortable>
                     </el-table-column>
                 </el-table>

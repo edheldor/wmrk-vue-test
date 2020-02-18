@@ -38,7 +38,7 @@
         display: block;
         width: 25%;
         height: 25%;
-        background-color: #00dfb7;
+        background-color: #008ffb;
         border-radius: 100%;
         animation: sk-chase-dot-before 2.0s infinite ease-in-out both;
     }

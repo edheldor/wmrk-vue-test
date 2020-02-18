@@ -19,7 +19,8 @@
                         bar: {
                             horizontal: false,
                             columnWidth: '55%',
-                            endingShape: 'rounded'
+                            endingShape: 'flat',
+
                         },
                     },
                     dataLabels: {
@@ -27,29 +28,30 @@
                     },
                     stroke: {
                         show: true,
-                        width: 2,
-                        colors: ['transparent']
+                        width: 0.2,
+                        colors: ['black']
                     },
                     xaxis: {
                         type: 'datetime',
-                        // labels: {
-                        //     format: 'HH:mm:ss  dd/MM/yyyy',
-                        // }
                         labels: {
                             datetimeFormatter: {
                                 year: 'yyyy',
                                 month: 'MMM \'yy',
                                 day: 'dd MMM',
                                 hour: 'HH:mm',
-                                minute: 'HH:mm:ss',
+
                             }
-                        }
+                        },
+
+
 
                     },
                     yaxis: {
                         title: {
-                            text: 'db'
+                            text: 'dBm'
                         }
+
+
                     },
                     fill: {
                         opacity: 1
@@ -57,12 +59,12 @@
                     tooltip: {
                         x:{
                             show:true,
-                            format: 'HH:mm:ss:ff  dd.MM.yyyy'
+                            format: 'HH:mm:ss dd.MM.yyyy'
 
                         },
                         y: {
                             formatter: function(value) {
-                                return value +" db"
+                                return value +" dBm"
                             }
                         }
                     }
@@ -77,7 +79,8 @@
                 //apex chart принимает данные в таком формате
                 return [{
                     "name":"RSSI",
-                    "data":this.usersignalsdata}]
+                    "data":this.usersignalsdata
+                }]
             }
         }
     }

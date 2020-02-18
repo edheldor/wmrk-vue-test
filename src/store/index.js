@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     userDataEndpointUrl: 'https://rssi.wmrk.tk/',
-    userDataLocalTestEndpointUrl: 'http://localhost:3000/' //для разработки
+    userDataLocalTestEndpointUrl: 'http://192.168.7.107:3000/' //для разработки
   },
 
   getters: {
