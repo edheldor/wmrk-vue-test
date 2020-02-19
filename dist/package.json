@@ -5,6 +5,7 @@
   "author": "gearmobile",
   "private": true,
   "scripts": {
+    "postinstall": "npm install connect-history-api-fallback",
     "postinstall": "npm install express"
   }
 }
