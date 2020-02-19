@@ -21,10 +21,10 @@ export default new Vuex.Store({
   },
   mutations: {
     changeDataEndpointUrlToOriginalWrapped(state){
-      state.userDataEndpointUrl = "https://leksin-wmrk-test-api-server.herokuapp.com/wmrk/"
+      state.userDataEndpointUrl = process.env.VUE_APP_USER_DATA_ENDPOINT_URL
     },
     changeDataEndpointUrlToAddedData(state){
-      state.userDataEndpointUrl = "https://leksin-wmrk-test-api-server.herokuapp.com/wmrk-added-data/"
+      state.userDataEndpointUrl = process.env.VUE_APP_USER_DATA_ENDPOINT_URL_ADDED_DATA
     }
   },
   actions: {
