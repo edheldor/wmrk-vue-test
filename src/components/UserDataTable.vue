@@ -80,12 +80,11 @@
                 fetchingComplete: false,
                 usersData: {},
                 fetchingErrorMesage: "",
-
-
             }
         },
         computed:{
           userDataAsArray(){
+              //для отображения в таблице
               let arr = [];
               for (let key in this.usersData){
                   arr.push({id: key,  last_name:this.usersData[key].last_name, first_name: this.usersData[key].first_name,

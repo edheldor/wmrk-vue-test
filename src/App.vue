@@ -3,9 +3,6 @@
     <div id="nav">
       <router-link to="/">Данные с https://rssi.wmrk.tk/</router-link> |
       <router-link to="/added-data">Дополненные данные</router-link>
-
-
-
     </div>
     <router-view/>
   </div>

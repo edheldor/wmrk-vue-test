@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    userDataEndpointUrl: 'https://rssi.wmrk.tk/',
+    userDataEndpointUrl: process.env.VUE_APP_USER_DATA_ENDPOINT_URL,
 
   },
 
@@ -13,7 +13,6 @@ export default new Vuex.Store({
     userDataEndpointUrl: function (state) {
       //так как https://rssi.wmrk.tk/ не отдает заголовок Access-Control-Allow-Origin, CORS policy не дают сделать запрос из браузера,
       //поэтому использую свой сервер, который подгружает данные с https://rssi.wmrk.tk/ и проставляет заголовок Access-Control-Allow-Origin: "*"
-
       return state.userDataEndpointUrl;
 
 

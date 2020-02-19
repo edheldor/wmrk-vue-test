@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    let ru = require("apexcharts/dist/locales/ru.json");
+    let ru = require("apexcharts/dist/locales/ru.json"); //русские подаиси на графике (названия кнопок и т.д.)
     export default {
         name: "UserDataUserSignalsChartV2",
         data(){
