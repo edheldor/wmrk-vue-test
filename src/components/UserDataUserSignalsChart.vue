@@ -47,15 +47,15 @@
                     yaxis: {
                         title: {
                             text: ' dBm ',
+                            offsetX: 15,
+                            offsetY: 0,
+
+
 
                         },
                         max: 0,
                         min: -120,
                         tickAmount: 6,
-
-
-
-
 
                     },
                     fill: {
