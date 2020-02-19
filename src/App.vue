@@ -3,8 +3,8 @@
     <div id="nav">
       <router-link to="/">Данные с https://rssi.wmrk.tk/</router-link> |
       <router-link to="/added-data">Дополненные данные</router-link>
-      <p>Адрес эндпоинта с данными</p>
-      <p>{{this.$store.getters.userDataEndpointUrl}}</p>
+
+
 
     </div>
     <router-view/>
@@ -26,10 +26,11 @@
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #000000;
 }
 
 #nav a.router-link-exact-active {
-  color: #3245b9;
+  color: #000000;
+  font-size: 1.5em;
 }
 </style>

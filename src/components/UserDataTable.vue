@@ -1,6 +1,7 @@
 
 <template>
     <div>
+        <el-alert title="Адрес эндпоинта с данными"  type="info" dark center> {{this.$store.getters.userDataEndpointUrl}} </el-alert>
         <div class="fetching-animation" v-if="this.fetchingComplete ===  false">
             <fetching-data-animation></fetching-data-animation>
         </div>
