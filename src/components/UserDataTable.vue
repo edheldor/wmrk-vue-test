@@ -68,7 +68,8 @@
 </template>
 
 <script>
-    import UserDataUserSignalsChart from "@/components/UserDataUserSignalsChart";
+    //import UserDataUserSignalsChart from "@/components/UserDataUserSignalsChart";
+    import UserDataUserSignalsChart from "@/components/UserDataUserSignalsChartV2";
     import FetchingDataAnimation from "@/components/FetchingDataAnimation";
     export default {
         name: "UserDataTable",
@@ -101,6 +102,7 @@
                 this.$refs.tableData.toggleRowExpansion(row);
             },
             userSignalsData(id){
+                //пакуем данные о силе сигнала и времени в формат для графика
                 return this.usersData[id].signals.map(item=>{
                     return [item['ts'],  item['rssi']]
                 })
