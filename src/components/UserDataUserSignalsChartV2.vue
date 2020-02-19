@@ -107,6 +107,7 @@
     }
 </script>
 
+
 <style >
 .apexcharts-tooltip-box{
     margin: 10px;
