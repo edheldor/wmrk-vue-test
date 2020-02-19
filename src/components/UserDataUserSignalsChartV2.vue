@@ -58,7 +58,7 @@
                         min: -120,
                         tickAmount: 6,
                         tooltip:{
-                            enabled: true,
+                            enabled: false,
 
                         }
 
@@ -70,21 +70,10 @@
                         // eslint-disable-next-line no-unused-vars
                         custom: function({series, seriesIndex, dataPointIndex, w}) {
                             let rssiValue =  w.config.series[0].data[dataPointIndex][1][1];
-                            let date = new Date(w.config.series[0].data[dataPointIndex][0]);
-                            /**
-                             * @return {string}
-                             */
-                            let UTChours = function(date){ // чтобы часы в тултипе выводились в одном стиле в два числа  (например 07)
-                                if (date.getUTCHours().toString().length === 1){
-                                    return "0" + date.getUTCHours().toString()
-                                }
-                                return date.getUTCHours()
-                            };
-                            let dateToString =  UTChours(date) + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds()
-                                 + " " + date.getUTCDate() + "." + date.getUTCMonth() + 1 + "." + date.getUTCFullYear();
+                            let date = w.globals.tooltip.xaxisTooltipText.innerText;
 
                             return '<div class="apexcharts-tooltip-box">' +
-                                '<span>' + dateToString  + '</span>' + "<p></p>" +
+                                '<span>' + date  + '</span>' + "<p></p>" +
                                 '<span>' + rssiValue + " dBm" + '</span>' +
                                 '</div>'
                         },
