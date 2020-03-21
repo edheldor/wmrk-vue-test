@@ -76,7 +76,6 @@
         components: {FetchingDataAnimation, UserDataUserSignalsChart},
         data(){
             return{
-                showng: true,
                 showing: {},
                 fetchingError: false,
                 fetchingComplete: false,
