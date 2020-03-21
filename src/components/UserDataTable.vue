@@ -33,7 +33,7 @@
                     <el-table-column type="expand" >
 
                         <template  slot-scope="props">
-                              <user-data-user-signals-chart   :usersignalsdata="userSignalsData(props.row.id) " ></user-data-user-signals-chart>
+                              <user-data-user-signals-chart v-if = "showing[props.row.id] === true"  v-on:clicked="clicked($event)" :pkey = "props.row.id"  :usersignalsdata="userSignalsData(props.row.id) " ></user-data-user-signals-chart>
                         </template>
 
                     </el-table-column>
@@ -76,6 +76,8 @@
         components: {FetchingDataAnimation, UserDataUserSignalsChart},
         data(){
             return{
+                showng: true,
+                showing: {},
                 fetchingError: false,
                 fetchingComplete: false,
                 usersData: {},
@@ -103,8 +105,21 @@
             userSignalsData(id){
                 //пакуем данные о силе сигнала и времени в формат для графика
                 return this.usersData[id].signals.map(item=>{
-                    return [item['ts'],  item['rssi']]
+                    return [item['ts'],  this.randomInteger(-120,0)] //для того чтобы каждый раз были разные данные
                 })
+            },
+            randomInteger(min, max) {
+                // случайное число от min до (max+1)
+                let rand = min + Math.random() * (max + 1 - min);
+                return Math.floor(rand);
+            },
+            clicked(number){
+                console.log(number);
+                this.showing[number] = false;
+                this.$nextTick(()=>{
+                    this.showing[number] = true;
+                })
+
             }
 
         },
@@ -114,6 +129,10 @@
                 .then(response=>{
                     this.usersData = response.data;
                     this.fetchingComplete = true;
+                    for (const user in this.usersData){
+                        this.$set(this.showing, user, true)
+                        //this.showing[user] = true; - так не будет реактивности этого компонента
+                    }
                  })
                 .catch(error=>{
                     this.fetchingError = true;

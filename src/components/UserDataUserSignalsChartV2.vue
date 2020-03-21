@@ -1,5 +1,7 @@
 <template>
-    <apexchart v-once  height="300" :options="chartOptions" :series="this.seriesWrapper"></apexchart>
+    <div v-on:click="clicked">
+         <apexchart v-once  height="300" :options="chartOptions" :series="this.seriesWrapper"></apexchart>
+    </div>
 </template>
 
 <script>
@@ -102,6 +104,11 @@
                     "name":"RSSI",
                     "data":wrappedData
                 }]
+            }
+        },
+        methods:{
+            clicked(){
+                 this.$emit('clicked', this.$attrs.pkey);
             }
         }
     }
