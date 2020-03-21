@@ -130,7 +130,7 @@
                     this.fetchingComplete = true;
                     for (const user in this.usersData){
                         this.$set(this.showing, user, true)
-                        //this.showing[user] = true; - так не будет реактивности этого компонента
+                        //this.showing[user] = true; - так не будет реактивности этого свойства!
                     }
                  })
                 .catch(error=>{
